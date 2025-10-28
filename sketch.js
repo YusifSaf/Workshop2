@@ -13,7 +13,7 @@ let threshold = 0.3;
 //For image version
 let imgTexture;
 let imgAmount = 5;
-let thresholds = [0.1, 0.2, 0.3, 0.4, 0.5];
+let thresholds = [0.1, 0.3, 0.5, 0.8, 1];
 let images = [];              // Threshold for loud sound detection
 
 function preload(){
