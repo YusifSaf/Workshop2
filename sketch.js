@@ -54,7 +54,7 @@ function draw()
     // Check if microphone is enabled
     if (window.micEnabled) 
     {
-        image(imgTexture, width/2, height/2, windowWidth-300, windowHeight);
+        image(imgTexture, width/2, height/2, windowWidth, windowHeight);
 
         // Get current microphone level (0.0 to 1.0)
         micLevel = mic.getLevel() * micMultiplier;
