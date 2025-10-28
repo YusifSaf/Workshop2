@@ -1,0 +1,11 @@
+@media screen and (orientation: portrait) {
+  .rotate-warning {
+    display: flex;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .rotate-warning {
+    display: none;
+  }
+}
