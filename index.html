@@ -28,18 +28,17 @@
   <!-- Load the p5.js sketch -->
   <script src="sketch.js"></script>
   <script>
-    function updateOrientation() {
-      if (window.matchMedia("(orientation: portrait)").matches) {
-        document.body.classList.add("portrait");
-      } else {
-        document.body.classList.remove("portrait");
-      }
+    const warning = document.getElementById("rotateWarning");
+
+    function checkOrientation() {
+      const isPortrait = window.innerHeight > window.innerWidth;
+      warning.classList.toggle("show-warning", isPortrait);
     }
 
-    // Run on load and on orientation change
-    window.addEventListener("load", updateOrientation);
-    window.addEventListener("orientationchange", updateOrientation);
-    window.addEventListener("resize", updateOrientation);
+    // Check at start and when the screen changes
+    window.addEventListener("load", checkOrientation);
+    window.addEventListener("resize", checkOrientation);
+    window.addEventListener("orientationchange", checkOrientation);
   </script>
   <div class="rotate-warning">
     <p>Please rotate your device and reload the page 🙃</p>

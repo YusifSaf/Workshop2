@@ -1,4 +1,4 @@
-body {
+/* body {
       margin: 0;
       height: 100vh;
       background: lightblue;
@@ -17,7 +17,6 @@ body {
       display: none;
     }
 
-    /* Visible when portrait (via class toggle) */
     body.portrait .rotate-warning {
       display: flex;
-    }
+    } */
