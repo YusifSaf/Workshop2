@@ -22,7 +22,30 @@
   
   <!-- Load the mobile p5.js permissions library -->
   <script src="https://cdn.jsdelivr.net/npm/mobile-p5-permissions@1.4.4/dist/p5.mobile-permissions.min.js"></script>
-  
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: lightblue;
+    }
+
+    .rotate-warning {
+      position: fixed;
+      inset: 0;
+      background: black;
+      color: white;
+      font-size: 1.5em;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 9999;
+      display: none;
+    }
+
+    .show-warning {
+      display: flex;
+    }
+  </style>
 </head>
 <body>
   <!-- Load the p5.js sketch -->
@@ -40,8 +63,8 @@
     window.addEventListener("resize", checkOrientation);
     window.addEventListener("orientationchange", checkOrientation);
   </script>
-  <div class="rotate-warning">
-    <p>Please rotate your device and reload the page 🙃</p>
+  <div class="rotate-warning" id="rotateWarning">
+    Please rotate your device 🌐
   </div>
 
 </body>
