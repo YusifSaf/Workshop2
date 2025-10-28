@@ -3,12 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rotate Demo (JS Only)</title>
+  <title>Mobile p5.js App</title>
+  
+  <!-- Basic CSS to remove browser defaults and align canvas -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+  </style>
+  
+  <!-- Load p5.js library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.10/p5.min.js"></script>
+  
+  <!-- Load p5.sound library for microphone -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.0/addons/p5.sound.min.js"></script>
+  
+  <!-- Load the mobile p5.js permissions library -->
+  <script src="https://cdn.jsdelivr.net/npm/mobile-p5-permissions@1.4.4/dist/p5.mobile-permissions.min.js"></script>
+  <script src="sketch.js"></script>
   <style>
     body {
       margin: 0;
       height: 100vh;
-      background: lightblue;
+      background: rgb(0, 0, 0);
+      overflow: hidden;
     }
 
     .rotate-warning {
@@ -34,7 +54,7 @@
     Please rotate your device 🌐
   </div>
 
-  <h1 style="text-align:center; margin-top: 40vh;">Landscape content goes here</h1>
+  <div id="p5-container"></div>
 
   <script>
     const warning = document.getElementById("rotateWarning");
