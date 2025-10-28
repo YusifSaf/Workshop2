@@ -7,18 +7,30 @@ let gifPic;
 let mic;
 let micLevel = 0;
 let micMultiplier = 3;  // Increase sensitivity
-let threshold = 0.3;    // Threshold for loud sound detection
+//For gif version
+let threshold = 0.3; 
+
+//For image version
+let imgTexture;
+let imgAmount = 5;
+let thresholds = [0.1, 0.2, 0.3, 0.4, 0.5];
+let images = [];              // Threshold for loud sound detection
 
 function preload(){
-  gifPic = loadImage('ezgif.com-animated-gif-maker.gif');
+//   gifPic = loadImage('ezgif.com-animated-gif-maker.gif');
+    for (let i=0; i<imgAmount; i++){
+        images[i] = loadImage(`img${i}.jpg`);
+    }
 }
 
 function setup() 
 {
     createCanvas(windowWidth, windowHeight);
+    imgTexture = images[0];
+    imageMode(CENTER);
     
     // Show debug panel FIRST
-    showDebug();
+    // showDebug();
     
     // Create microphone input (global variable for library to use)
     mic = new p5.AudioIn();
@@ -42,7 +54,7 @@ function draw()
     // Check if microphone is enabled
     if (window.micEnabled) 
     {
-        image(gifPic, 0, 0, 200, 200);
+        image(imgTexture, width/2, height/2, windowWidth-300, windowHeight);
 
         // Get current microphone level (0.0 to 1.0)
         micLevel = mic.getLevel() * micMultiplier;
@@ -55,16 +67,25 @@ function draw()
         debug("Raw Level: " + nf(micLevel, 1, 3));
         debug("Percentage: " + int(micLevel * 100) + "%");
         
-        // Check against threshold
-        if (micLevel > threshold) 
-        {
-            gifPic.play();
-            debug("STATUS: LOUD! (Above threshold)");
-        }
-        else 
-        {
-            gifPic.pause();  
-            debug("STATUS: Quiet (Below threshold)");
+        // Gif version of Check against threshold
+        // if (micLevel > threshold) 
+        // {
+        //     gifPic.play();
+        //     debug("STATUS: LOUD! (Above threshold)");
+        // }
+        // else 
+        // {
+        //     gifPic.pause();  
+        //     debug("STATUS: Quiet (Below threshold)");
+        // }
+
+        //Image version
+        for (let i=0; i<imgAmount; i++){
+            if (micLevel > thresholds[i])
+            {
+                imgTexture = images[i];
+            }
+            else{ break; }
         }
         
         // Add visual bar representation using text
