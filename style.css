@@ -4,27 +4,20 @@ body {
       background: lightblue;
     }
 
-.rotate-warning {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: black;
-    color: white;
-    font-size: 1.5em;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    z-index: 10;
-    }    
-
-    @media screen and (orientation: portrait) {
-      .rotate-warning {
-        display: flex;
-      }
+    .rotate-warning {
+      position: fixed;
+      inset: 0;
+      background: black;
+      color: white;
+      font-size: 1.5em;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 9999;
+      display: none;
     }
 
-    @media screen and (orientation: landscape) {
-      .rotate-warning {
-        display: none;
-      }
+    /* Visible when portrait (via class toggle) */
+    body.portrait .rotate-warning {
+      display: flex;
     }
