@@ -36,20 +36,27 @@
       background: black;
       color: white;
       font-size: 1.5em;
-      align-items: center;
-      justify-content: center;
+      display: flex;                /* Enable flexbox */
+      align-items: center;          /* Vertical centering */
+      justify-content: center;      /* Horizontal centering */
       text-align: center;
       z-index: 10;
       display: none;
-    }
+    } 
 
     .show-warning {
       display: flex;
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <div style="text-align:center; margin-top: 40vh;" class="rotate-warning" id="rotateWarning">
+  <div class="rotate-warning" id="rotateWarning">
     Please rotate your device and reload the page🌐
   </div>
   <script>
