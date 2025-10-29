@@ -23,6 +23,12 @@
       background: rgb(0, 0, 0);
       overflow: hidden;
     }
+    
+    canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 1; /* Keep it below overlays */
+    }
 
     .rotate-warning {
       position: fixed;
@@ -43,12 +49,9 @@
   </style>
 </head>
 <body>
-  <div class="rotate-warning" id="rotateWarning">
+  <div style="margin-top: 40vh;" class="rotate-warning" id="rotateWarning">
     Please rotate your device and reload the page🌐
   </div>
-
-  <h1 style="text-align:center; margin-top: 40vh;">Landscape content goes here</h1>
-
   <script>
     const warning = document.getElementById("rotateWarning");
 
