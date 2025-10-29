@@ -1,7 +1,10 @@
-/* body {
+body {
+  margin: 0;
+      padding: 0;
       margin: 0;
       height: 100vh;
-      background: lightblue;
+      background: rgb(0, 0, 0);
+      overflow: hidden;
     }
 
     .rotate-warning {
@@ -13,10 +16,10 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      z-index: 9999;
+      z-index: 10;
       display: none;
     }
 
-    body.portrait .rotate-warning {
+    .show-warning {
       display: flex;
-    } */
+    }
