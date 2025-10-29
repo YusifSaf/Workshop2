@@ -1,10 +1,16 @@
-/* body {
-  margin: 0;
+    body {
+      margin: 0;
       padding: 0;
       margin: 0;
       height: 100vh;
       background: rgb(0, 0, 0);
       overflow: hidden;
+    }
+    
+    canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 1; /* Keep it below overlays */
     }
 
     .rotate-warning {
@@ -13,13 +19,20 @@
       background: black;
       color: white;
       font-size: 1.5em;
+      display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       z-index: 10;
       display: none;
-    }
+    } 
 
     .show-warning {
       display: flex;
-    } */
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
