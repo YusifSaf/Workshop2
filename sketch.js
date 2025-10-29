@@ -25,8 +25,7 @@ function preload(){
 
 function setup() 
 {
-    let canvas = createCanvas(windowWidth, windowHeight);
-    canvas.parent(document.getElementById("p5-container"));
+    createCanvas(windowWidth, windowHeight);
     imgTexture = images[0];
     imageMode(CENTER);
     
